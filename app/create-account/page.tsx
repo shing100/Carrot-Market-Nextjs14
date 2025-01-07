@@ -16,19 +16,21 @@ export default function CreateAccount() {
                 <h2 className="text-xl">Fill in the form below to join!</h2>
             </div>
             <Form action={dispatch} className="flex flex-col gap-3">
-                <FormInput name="username" type="text" placeholder="Username" required errors={[]} />
-                <FormInput name="email" type="email" placeholder="Email" required errors={[]} />
+                <FormInput name="username" type="text" placeholder="Username" errors={state?.fieldErrors.username}/>
+                <FormInput name="email" type="email" placeholder="Email" errors={state?.fieldErrors.email} />
                 <FormInput
                     name="password"
                     type="password"
                     placeholder="Password"
                     required
+                    errors={state?.fieldErrors.password}
                 />
                 <FormInput
-                    name="passwordConfirm"
+                    name="confirm_password"
                     type="password"
                     placeholder="Confirm Password"
                     required
+                    errors={state?.fieldErrors.confirm_password}
                 />
                 <FormButton text="Create account" />
             </Form>
