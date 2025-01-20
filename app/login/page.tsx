@@ -5,10 +5,11 @@ import Input from "@/components/input";
 import SocialLogin from "@/components/social-login";
 import Form from "next/form";
 import { useActionState } from "react";
-import {handleForm} from "@/app/login/actions";
+import { logIn } from "./actions";
+import { PASSWORD_MIN_LENGTH } from "@/lib/constants";
 
 export default function LogIn() {
-    const [state, action] = useActionState(handleForm, null);
+    const [state, action] = useActionState(logIn, null);
 
     return (
         <div className="flex flex-col gap-10 py-8 px-6">
@@ -17,12 +18,19 @@ export default function LogIn() {
                 <h2 className="text-xl">Log in with email and password.</h2>
             </div>
             <Form action={action} className="flex flex-col gap-3">
-                <Input name="email" type="email" placeholder="Email" required />
+                <Input name="email"
+                       type="email"
+                       placeholder="Email"
+                       required
+                       errors={state?.fieldErrors.email}
+                />
                 <Input
                     name="password"
                     type="password"
                     placeholder="Password"
                     required
+                    minLength={PASSWORD_MIN_LENGTH}
+                    errors={state?.fieldErrors.password}
                 />
                 <FormButton text="Log in"/>
             </Form>
