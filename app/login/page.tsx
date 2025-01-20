@@ -1,7 +1,7 @@
 "use client";
 
-import FormButton from "@/components/form-btn";
-import FormInput from "@/components/form-input";
+import FormButton from "@/components/button";
+import Input from "@/components/input";
 import SocialLogin from "@/components/social-login";
 import Form from "next/form";
 import { useActionState } from "react";
@@ -17,8 +17,8 @@ export default function LogIn() {
                 <h2 className="text-xl">Log in with email and password.</h2>
             </div>
             <Form action={action} className="flex flex-col gap-3">
-                <FormInput name="email" type="email" placeholder="Email" required />
-                <FormInput
+                <Input name="email" type="email" placeholder="Email" required />
+                <Input
                     name="password"
                     type="password"
                     placeholder="Password"
