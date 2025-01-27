@@ -1,4 +1,4 @@
-"user client";
+"use client";
 
 import FormButton from "@/components/button";
 import Input from "@/components/input";

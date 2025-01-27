@@ -1,7 +1,7 @@
 import {InputHTMLAttributes} from "react";
 
 interface InputProps {
-    errors?: string[];
+    errors?: string[] | undefined;
     name: string;
 }
 export default function Input({
